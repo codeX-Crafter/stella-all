@@ -1,6 +1,9 @@
-# Project STELLA  
-![alt text](<Screenshot 2026-02-08 060429.png>)
-## GPS-Jammed Autonomous Navigation  
+# Project STELLA
+
+![alt text](logo.png)
+
+## GPS-Jammed Autonomous Navigation
+
 ## Problem Statement
 
 **Problem:**  
@@ -9,50 +12,51 @@ Enemy jamming or spoofing disables GPS signals, causing loss of absolute positio
 **Challenge:**  
 Enable an Unmanned Aerial Vehicle (UAV) to complete a waypoint-based mission using only GPS-denied onboard sensors.
 
-**Core Requirements:**  
-- Visual odometry (optical flow)  
-- IMU + Barometer fusion  
-- Compass (magnetometer)  
-- Optional: Pre-loaded map matching  
+**Core Requirements:**
+
+- Visual odometry (optical flow)
+- IMU + Barometer fusion
+- Compass (magnetometer)
+- Optional: Pre-loaded map matching
 
 ## Overview
 
 **STELLA** is a high-fidelity navigation and mission planning framework for UAVs operating in GNSS-denied or jammed environments.  
 The system emphasizes **multi-sensor fusion using Kalman Filter algorithms** to estimate position, velocity, and heading without relying on GPS.
-![alt text](<Screenshot 2026-02-08 060319.png>)
+![alt text](preview_dashboard.png)
 
 STELLA provides:
-- Real-time navigation estimation  
-- Mission-level planning and visualization  
-- Post-mission performance analysis  
-- Robust behavior under electronic warfare conditions  
 
-
+- Real-time navigation estimation
+- Mission-level planning and visualization
+- Post-mission performance analysis
+- Robust behavior under electronic warfare conditions
 
 ## System Architecture
 
 ### 1. Mission Planner
-![alt text](<Screenshot 2026-02-08 060224.png>)
+
+![alt text](preview_plan.png)
 The Mission Planner module enables operators to define and validate flight missions.
 
 **Features:**
+
 - **Waypoint Sequencing:**  
   Interactive coordinate selection with altitude (MSL) assignment.
 - **Payload Configuration:**  
   Toggles for EO/IR sensors, SAR imagers, and interference modules.
 - **Pre-Flight Validation:**  
   Automated checks for:
-  - Sensor calibration  
-  - Battery status  
-  - Secure communication handshake  
-
-
+  - Sensor calibration
+  - Battery status
+  - Secure communication handshake
 
 ### 2. Real-Time Dashboard
 
 Command-and-control interface for live mission monitoring.
 
 **Capabilities:**
+
 - **Spatial Reconstruction:**  
   Real-time plotting of estimated trajectory vs. true trajectory.
 - **Residual Analysis:**  
@@ -60,17 +64,16 @@ Command-and-control interface for live mission monitoring.
 - **System Logs:**  
   Terminal-style telemetry and mission event output.
 
-
 ### 3. Post-Mission Analytics
 
 Debriefing and evaluation tools after mission completion.
 
 **Reports:**
+
 - **Interference Impact Analysis:**  
   Measures signal drift and recovery latency during jamming windows.
 - **Stability Metrics:**  
   Tracks Kalman Filter convergence and sensor fusion efficiency over time.
-
 
 ## Technical Specifications
 
@@ -78,45 +81,49 @@ Debriefing and evaluation tools after mission completion.
 
 The core estimation engine uses a **Discrete-Time Kalman Filter (DTKF)**.
 
-**State Vector:**  
-- Position (x, y)  
-- Velocity (vx, vy)  
+**State Vector:**
+
+- Position (x, y)
+- Velocity (vx, vy)
 - Heading (θ)
 
-**State Transition Model:**  
+**State Transition Model:**
+
 - Constant velocity and constant acceleration kinematics
 
-**Noise Mitigation:**  
-- Dynamic adjustment of Measurement Noise Covariance (R) when interference is detected  
-- Increased reliance on inertial and vision-based sensors under GPS loss  
+**Noise Mitigation:**
 
+- Dynamic adjustment of Measurement Noise Covariance (R) when interference is detected
+- Increased reliance on inertial and vision-based sensors under GPS loss
 
 ## Visual Identity
-**Primary Colors:**  
-- Pure White `#FFFFFF`  
+
+**Primary Colors:**
+
+- Pure White `#FFFFFF`
 - Neon Cyan `#22D3EE`
 
-**Secondary Colors:**  
-- Emerald Green `#10B981`  
+**Secondary Colors:**
+
+- Emerald Green `#10B981`
 - Alert Red `#EF4444`
 
-**Background:**  
+**Background:**
+
 - Obsidian Black `#0A0C10`
 
 Optimized for:
-- Low-light operation  
-- High contrast  
-- Situational clarity  
 
-
+- Low-light operation
+- High contrast
+- Situational clarity
 
 ## Frontend Stack
 
-- **Framework:** React.js  
-- **Animation:** Framer Motion  
-- **Visualization:** Recharts (SVG-based plotting)  
-- **Icons:** Lucide React  
-
+- **Framework:** React.js
+- **Animation:** Framer Motion
+- **Visualization:** Recharts (SVG-based plotting)
+- **Icons:** Lucide React
 
 ## Data Structure
 
@@ -140,3 +147,4 @@ Telemetry is processed in JSON format using the following schema:
     "max_position_error": "float"
   }
 }
+```
